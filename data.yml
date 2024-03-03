@@ -8,6 +8,13 @@ jobs:
     name: Job-1
     steps: []
     subgraphs: []
+  Job-2:
+    excludeSelector: ""
+    id: 2
+    includeSelector: "{NodeType:STAGE}"
+    name: Job-2
+    steps: []
+    subgraphs: []
 locations:
   SAMPLE:
     mappingDefinitions:

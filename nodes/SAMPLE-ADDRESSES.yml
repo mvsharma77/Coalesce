@@ -1,0 +1,198 @@
+steps:
+  ADDRESSES-d44f5196-0f6d-49e7-99f9-9252f6612288:
+    operation:
+      database: ""
+      dataset: ""
+      deployEnabled: true
+      description: ""
+      locationName: SAMPLE
+      metadata:
+        columns:
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: ea511f01-395d-476b-90ae-b960d58b4c05
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: ADDRESSID
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 028b07e9-cd5f-44d0-8b3d-d8658b384d7f
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: CITY
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 189d08ab-dc38-4b6e-a84b-f8995a5cf986
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: POSTALCODE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 8ada50cc-da9f-499e-920d-1bab5759f5f9
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: STREET
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: f1af5450-2fa4-424a-99be-a22256f29cb7
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: BUILDING
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 6254a548-c945-4e78-9249-63cecd17c9bf
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: COUNTRY
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 9f465b32-0598-4f04-879e-b0ebe64bf0c4
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: VARCHAR(16777216)
+            defaultValue: ""
+            description: ""
+            name: REGION
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 7ca82f96-e5c1-45d9-b3ef-0735e46a8695
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: ADDRESSTYPE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: ba678d1f-4f0b-40cb-b6a1-e7dcece0f34d
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: VALIDITY_STARTDATE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 7223e83b-5c95-4272-9fe0-d54536d43f34
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: VALIDITY_ENDDATE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 6f8d3b36-ced9-43d3-a678-684d309a7af7
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: LATITUDE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+          - acceptedValues:
+              strictMatch: true
+              values: []
+            appliedColumnTests: {}
+            columnReference:
+              columnCounter: 34bf9b28-df5a-4762-a1bf-069189d0a6b1
+              stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
+            config: {}
+            dataType: NUMBER(38,0)
+            defaultValue: ""
+            description: ""
+            name: LONGITUDE
+            nullable: true
+            primaryKey: false
+            uniqueKey: false
+        join:
+          joinCondition: FROM {{ ref('SAMPLE', 'ADDRESSES') }}
+      name: ADDRESSES
+      schema: ""
+      sqlType: Source
+      table: ADDRESSES
+      type: sourceInput
+    stepCounter: d44f5196-0f6d-49e7-99f9-9252f6612288
