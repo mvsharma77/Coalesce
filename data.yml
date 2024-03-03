@@ -5,7 +5,7 @@ jobs:
     excludeSelector: ""
     id: 1
     includeSelector: "{NodeType:Stage}"
-    name: New Job
+    name: Job-1
     steps: []
     subgraphs: []
 locations:
