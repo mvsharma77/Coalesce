@@ -1,4 +1,4 @@
-defaultStorageMapping: WORK
+defaultStorageMapping: SAMPLE
 installedPackages: {}
 jobs:
   Job-1:
@@ -21,11 +21,6 @@ locations:
       "2":
         database: DC_4_AI_DB
         schema: SAP_SALES
-  WORK:
-    mappingDefinitions:
-      "2":
-        database: DC_4_AI_DB
-        schema: SAP_SALES_COALESCE
 macros: {}
 packages: {}
 projects: {}
