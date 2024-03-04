@@ -1,0 +1,31 @@
+pool: agentpool-001
+
+variables:
+ - name: coalesceCliVersion
+   value: '6.2.21'
+
+trigger:
+  branches:
+    include:
+    - main
+
+steps:
+
+- task: DownloadSecureFile@1
+  name: coaConfig
+  displayName: 'Download coa config'
+  inputs:
+    secureFile: 'config'
+
+- task: NodeTaskRunnerInstaller@0
+  inputs:
+    nodeVersion: '10'
+
+- task: CmdLine@2
+  inputs:
+    script: |
+      npm i -g pnpm
+      npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion);
+      
+      coa plan  --config $(coaConfig.secureFilePath) --out ./coa-plan --debug;
+      coa deploy  --config $(coaConfig.secureFilePath);
