@@ -27,6 +27,6 @@ steps:
   inputs:
     script: |
       npm i -g pnpm
-      npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion);
+      npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion)
       
-      coa refresh  --config $(coaConfig.secureFilePath);
+      coa refresh  --config $(coaConfig.secureFilePath)
