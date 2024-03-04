@@ -29,10 +29,14 @@ steps:
 
       echo $(coalesceCliVersion)
       
-      echo "Begin Paln"
-      coa plan  --config $(coaConfig.secureFilePath) --out ./coa-plan;
+      echo "Begin Plan"
+
+      coa plan  --config $(coaConfig.secureFilePath) --out ./coa-plan
+
       echo $(coaConfig.secureFilePath)
+
       echo "Plan End"
 
-      coa deploy  --config $(coaConfig.secureFilePath);
+      coa deploy  --config $(coaConfig.secureFilePath)
+      
       echo "End Deployment"
