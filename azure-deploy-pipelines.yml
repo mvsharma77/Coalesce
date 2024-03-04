@@ -2,7 +2,7 @@ pool: agentpool-001
 
 variables:
  - name: coalesceCliVersion
-   value: '6.2.21'
+   value: latest
 
 trigger:
   branches:
@@ -26,6 +26,13 @@ steps:
     script: |
       npm i -g pnpm
       npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion);
+
+      echo $(coalesceCliVersion)
       
-      coa plan  --config $(coaConfig.secureFilePath) --out ./coa-plan --debug;
+      echo "Begin Paln"
+      coa plan  --config $(coaConfig.secureFilePath) --out ./coa-plan;
+      echo $(coaConfig.secureFilePath)
+      echo "Plan End"
+
       coa deploy  --config $(coaConfig.secureFilePath);
+      echo "End Deployment"
