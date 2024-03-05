@@ -1,0 +1,47 @@
+trigger:
+- main
+
+pr:
+- main
+
+pool: agentpool-001
+
+variables:
+  coalesceCliVersion: '6.2.21'
+
+schedules:
+- cron: "0 * * * *"
+  displayName: Hourly Refresh
+  branches:
+    include:
+    - main
+
+jobs:
+- job: deploy
+  displayName: 'Deploy to Environment'
+  steps:
+  - checkout: self
+  
+  - task: DownloadSecureFile@1
+    name: coaConfig
+    displayName: 'Download coa config'
+    inputs:
+      secureFile: 'config'
+      retryCount: '3'
+
+  - script: |
+      echo "$(coaConfig)" > coaConfig
+    env:
+      coaConfig: $(secrets.coaConfig)
+
+  - script: |
+      npm i -g pnpm
+      npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion);
+    displayName: 'Install Coalesce CLI'
+
+  - script: 'npx coa --version'
+    displayName: 'Print COA Version'
+
+  - script: |
+      npx coa refresh  --config $(coaConfig.secureFilePath)
+    displayName: 'Execute COA Refresh'
