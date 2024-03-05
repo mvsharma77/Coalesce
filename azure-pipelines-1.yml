@@ -17,8 +17,8 @@ schedules:
     - main
 
 jobs:
-- job: deploy
-  displayName: 'Deploy to Environment'
+- job: Refresh
+  displayName: 'Refresh Coalesce jobs'
   steps:
   - checkout: self
   
