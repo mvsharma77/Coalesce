@@ -20,7 +20,6 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      npm i -g pnpm
       # Install Coalesce CLI tool, if not installed
       npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion);
       
