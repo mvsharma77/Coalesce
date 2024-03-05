@@ -1,13 +1,6 @@
 defaultStorageMapping: SAMPLE
 installedPackages: {}
 jobs:
-  Job-1:
-    excludeSelector: ""
-    id: 1
-    includeSelector: "{NodeType:Stage}"
-    name: Job-1
-    steps: []
-    subgraphs: []
   Job-2:
     excludeSelector: ""
     id: 2
