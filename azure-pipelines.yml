@@ -7,7 +7,7 @@ pr:
 pool: agentpool-001
 
 variables:
-  coalesceCliVersion: 'latest'
+  coalesceCliVersion: '6.2.21'
 
 jobs:
 - job: deploy
