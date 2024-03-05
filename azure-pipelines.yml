@@ -28,6 +28,7 @@ jobs:
       coaConfig: $(secrets.coaConfig)
 
   - script: |
+      npm i -g pnpm
       npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion);
     displayName: 'Install Coalesce CLI'
 
