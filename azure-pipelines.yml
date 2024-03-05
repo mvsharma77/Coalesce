@@ -36,9 +36,9 @@ jobs:
     displayName: 'Print Coa Version'
 
   - script: |
-      npx coa plan --config coaConfig --out ./coa-plan --debug
+      npx coa plan  --config $(coaConfig.secureFilePath) --out ./coa-plan --debug
     displayName: 'Create Deployment Plan'
 
   - script: |
-      npx coa deploy --config coaConfig --plan ./coa-plan --debug
+      npx coa deploy  --config $(coaConfig.secureFilePath) --plan ./coa-plan --debug
     displayName: 'Deploy Plan'
