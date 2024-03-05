@@ -1,29 +1,45 @@
+trigger:
+- main
+
+pr:
+- main
+
 pool: agentpool-001
 
 variables:
- - name: coalesceCliVersion
-   value: latest 
+  COA_VERSION: 'latest'
 
-trigger:
-  branches:
-    include:
-    - main
+jobs:
+- job: deploy
+  displayName: 'Deploy to Environment'
+  steps:
+  - checkout: self
+  
+  - task: DownloadSecureFile@1
+    name: coaConfig
+    displayName: 'Download coa config'
+    inputs:
+      secureFile: 'config'
+      retryCount: '3'
 
-steps:
+  - script: |
+      echo "$(coaConfig)" > coaConfig
+    env:
+      coaConfig: $(secrets.coaConfig)
 
-- task: DownloadSecureFile@1
-  name: coaConfig
-  displayName: 'Download coa config'
-  inputs:
-    secureFile: 'config'
+  - script: |
+      if [ -z "$(npm list | grep "@coalescesoftware/coa@${COA_VERSION}")" ]; then
+        npm install @coalescesoftware/coa@${COA_VERSION}
+      fi
+    displayName: 'Install Coalesce CLI'
 
-- task: CmdLine@2
-  inputs:
-    script: |
-      npm i -g pnpm
-      # Install Coalesce CLI tool, if not installed
-      npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion);
-      
-      # Start refresh
-      coa plan  --config $(coaConfig.secureFilePath);
-      coa deploy  --config $(coaConfig.secureFilePath);
+  - script: 'npx coa --version'
+    displayName: 'Print Coa Version'
+
+  - script: |
+      npx coa plan --config coaConfig --out ./coa-plan --debug
+    displayName: 'Create Deployment Plan'
+
+  - script: |
+      npx coa deploy --config coaConfig --plan ./coa-plan --debug
+    displayName: 'Deploy Plan'
