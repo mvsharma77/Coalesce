@@ -7,7 +7,7 @@ pr:
 pool: agentpool-001
 
 variables:
-  COA_VERSION: 'latest'
+  coalesceCliVersion: 'latest'
 
 jobs:
 - job: deploy
@@ -28,9 +28,7 @@ jobs:
       coaConfig: $(secrets.coaConfig)
 
   - script: |
-      if [  "$(npm list | grep "@coalescesoftware/coa@${COA_VERSION}")" ]; then
-        npm install @coalescesoftware/coa@${COA_VERSION}
-      fi
+      npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion);
     displayName: 'Install Coalesce CLI'
 
   - script: 'npx coa --version'
