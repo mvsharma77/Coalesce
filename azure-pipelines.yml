@@ -2,7 +2,7 @@ pool: agentpool-001
 
 variables:
  - name: coalesceCliVersion
-   value: latest # Before utilizing this pipeline in production scenarios, it is advised to pin a specific version. This practice aims to reduce potential disruptions. You can find the released versions on NPM at this link: https://www.npmjs.com/package/@coalescesoftware/coa 
+   value: latest 
 
 trigger:
   branches:
@@ -20,6 +20,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
+      npm i -g pnpm
       # Install Coalesce CLI tool, if not installed
       npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion);
       
