@@ -27,8 +27,12 @@ steps:
       npm i -g pnpm
       npm list -g | grep "@coalescesoftware/coa@$(coalesceCliVersion)" || npm install -g @coalescesoftware/coa@$(coalesceCliVersion);
     
-      coa plan  --config $(coaConfig.secureFilePath) --out ./coa-plan;
-
-      echo $(coaConfig.secureFilePath);
-
-      coa deploy  --config $(coaConfig.secureFilePath);
+      echo $(coalesceCliVersion)
+      
+      echo "Begin Plan"
+      coa plan  --config $(coaConfig.secureFilePath) --out ./coa-plan
+      echo $(coaConfig.secureFilePath)
+      echo "Plan End"
+      coa deploy  --config $(coaConfig.secureFilePath)
+      
+      echo "End Deployment"
