@@ -28,7 +28,7 @@ jobs:
       coaConfig: $(secrets.coaConfig)
 
   - script: |
-      if [ -z "$(npm list | grep "@coalescesoftware/coa@${COA_VERSION}")" ]; then
+      if [  "$(npm list | grep "@coalescesoftware/coa@${COA_VERSION}")" ]; then
         npm install @coalescesoftware/coa@${COA_VERSION}
       fi
     displayName: 'Install Coalesce CLI'
