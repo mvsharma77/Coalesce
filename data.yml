@@ -8,13 +8,6 @@ jobs:
     name: Job-2
     steps: []
     subgraphs: []
-  Job-3:
-    excludeSelector: ""
-    id: 3
-    includeSelector: ""
-    name: New Job
-    steps: []
-    subgraphs: []
 locations:
   SAMPLE:
     mappingDefinitions:
