@@ -8,7 +8,6 @@ pool: agentpool-001
 
 variables:
   coalesceCliVersion: '6.2.21'
-  jobID: 
 
 schedules:
 - cron: "0 0 * * *"
@@ -44,5 +43,5 @@ jobs:
     displayName: 'Print COA Version'
 
   - script: |
-      npx coa refresh  --config $(coaConfig.secureFilePath) --jobID $(jobID)
+      npx coa refresh  --config $(coaConfig.secureFilePath) $(jobID)
     displayName: 'Execute COA Refresh'
