@@ -10,7 +10,7 @@ variables:
   coalesceCliVersion: '6.2.21'
 
 schedules:
-- cron: "0 * * * *"
+- cron: "0 0 * * *"
   displayName: Hourly Refresh
   branches:
     include:
@@ -26,7 +26,7 @@ jobs:
     name: coaConfig
     displayName: 'Download coa config'
     inputs:
-      secureFile: 'config'
+      secureFile: 'config-new'
       retryCount: '3'
 
   - script: |
