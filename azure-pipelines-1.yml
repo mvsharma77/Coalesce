@@ -8,7 +8,7 @@ pool: agentpool-001
 
 variables:
   coalesceCliVersion: '6.2.21'
-  jobID: 9
+  jobID: 
 
 schedules:
 - cron: "0 0 * * *"
